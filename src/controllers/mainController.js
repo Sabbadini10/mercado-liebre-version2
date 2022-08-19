@@ -17,7 +17,8 @@ const controller = {
 		let productos = loadProductos()
 		const producto = productos.find(product => product.id === +req.params.id);
 		return res.render('productos', {
-				productos
+				productos,
+				toThousand
 		})
 
 	},
@@ -25,10 +26,11 @@ const controller = {
 		// Do the magic
 		let {keywords} = req.query;
 		let productos = loadProductos();
-		let resultado = productos.filter(producto => producto.name.includes(keywords))
+		let resultado = productos.filter(producto => producto.name.toLowerCase().includes(keywords))
 		return res.render('resultados', {
 			keywords,
-			resultado
+			resultado,
+			toThousand
 		})
 	},
 };
