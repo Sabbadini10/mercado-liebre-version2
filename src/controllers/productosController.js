@@ -75,19 +75,20 @@ const controller = {
         const productosModificados = productos.map(producto => {
             if (producto.id === +id ){
                 return {
-                    ...producto,
+                    id : producto.id,
                     name : name.trim(),
                     price : +price,
                     discount : +discount,
                     category,
-                    description
+                    description,
+                    image : producto.image
                 }
             }
             return producto
         })
 
        tiendaProductos(productosModificados)
-        return res.redirect('/productos')
+        return res.redirect('/productos/detalle/' + req.params.id)
 
 	},
 
