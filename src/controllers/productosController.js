@@ -37,7 +37,7 @@ const controller = {
 	// Create -  Method to store
 	tienda: (req, res) => {
 		const productos = loadProductos();
-        const {name,price,discount,category,image} = req.body;
+        const {name,price,discount,category,image,description} = req.body;
         const id = productos[productos.length - 1].id;
 
         const nuevoProducto = {
