@@ -48,7 +48,7 @@ const controller = {
             discount : +discount,
             description,
             category,
-            image: 'default-image.png'
+            image
         }
 
         const productosNuevo = [...productos,nuevoProducto];
