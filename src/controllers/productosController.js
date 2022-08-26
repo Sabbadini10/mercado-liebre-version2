@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { loadProductos ,tiendaProductos } = require('../data/db-modules')
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
@@ -41,8 +40,9 @@ const controller = {
         const id = productos[productos.length - 1].id;
 
         const nuevoProducto = {
-            id : id + 1,
+            
             ...req.body,
+            id : id + 1,
             name: name.trim(),
             price : +price,
             discount : +discount,
@@ -70,7 +70,7 @@ const controller = {
 	cambiar: (req, res) => {
 		const productos = loadProductos();
         const {id} = req.params;
-        const {name,price,discount,category, description} = req.body;
+        const {name,price,discount,category,description} = req.body;
 
         const productosModificados = productos.map(producto => {
             if (producto.id === +id ){
@@ -81,7 +81,7 @@ const controller = {
                     discount : +discount,
                     category,
                     description,
-                    image : producto.image
+                    image
                 }
             }
             return producto

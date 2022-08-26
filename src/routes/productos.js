@@ -12,7 +12,7 @@ router.get('/', index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/crear', crear); 
-router.post('/crear',upload.array('image'),tienda); 
+router.post("/crear", upload.array("image"), tienda);
 
 
 /*** GET ONE PRODUCT ***/ 
