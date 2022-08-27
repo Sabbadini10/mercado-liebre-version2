@@ -36,19 +36,22 @@ const controller = {
 	// Create -  Method to store
 	tienda: (req, res) => {
 		const productos = loadProductos();
-        const {name,price,discount,category,image,description} = req.body;
+        const {name,price,discount,category,description} = req.body;
         const id = productos[productos.length - 1].id;
+        let image;
+        if(req.files.length > 0){
+            image = req.files.map(image => image.filename)
+        }
 
         const nuevoProducto = {
-            
-            ...req.body,
             id : id + 1,
+            ...req.body,
             name: name.trim(),
             price : +price,
             discount : +discount,
             description,
             category,
-            image
+            image : image ? image : ['default-image.png']
         }
 
         const productosNuevo = [...productos,nuevoProducto];
@@ -75,13 +78,13 @@ const controller = {
         const productosModificados = productos.map(producto => {
             if (producto.id === +id ){
                 return {
-                    id : producto.id,
+                    ...producto,
                     name : name.trim(),
                     price : +price,
                     discount : +discount,
                     category,
                     description,
-                    image
+                    
                 }
             }
             return producto

@@ -1,5 +1,5 @@
-const { loadProductos, tiendaProductos } = require('../data/db-modules');
-
+const { loadProductos } = require('../data/db-modules');
+const { admin } = require('../../middleware/admi')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
@@ -33,6 +33,17 @@ const controller = {
 			toThousand
 		})
 	},
+	admin: (req,res) => {
+        return res.render("admin",{
+            user: req.query.user
+        })
+    },
+    loginAdmin: (req,res) => {
+        return res.render("loginAdmin",{
+            msg : req.query.error ? "No tienes los privilegios para ingresar" : null
+        })
+    }
+	
 };
 
 module.exports = controller;
