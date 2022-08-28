@@ -11,4 +11,13 @@ const tiendaProductos = (productos) => {
     fs.writeFileSync(path.join(__dirname,'./productsDataBase.json'), JSON.stringify(productos, null, 3),'utf8')
 }
 
-module.exports = { loadProductos, tiendaProductos };
+const loadCategorias = () => {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, './categorias.json'),'utf-8'))
+}
+
+
+module.exports = { 
+  loadProductos, 
+  tiendaProductos, 
+  loadCategorias 
+};
