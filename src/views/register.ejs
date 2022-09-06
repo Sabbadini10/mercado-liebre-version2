@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Formulario de creación'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Formulario de creación de usuarios</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="" enctype="multipart/form-data" method="POST" >
+				<div class="row product-detail">
+					<div class="col-12 col-md-6">
+						<label for="first_name" class="form-label">Nombre:</label>
+						<input type="text" class="form-input <%= locals.errors && errors.first_name ? 'is-invalid' : null  %>" id="first_name" name="first_name" value="<%= locals.old && old.first_name ? old.first_name : null %>" placeholder="Ej: Juan" >
+						<span class="text-danger"><%= locals.errors && errors.first_name ? errors.first_name.msg : null %></span>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="last_name" class="form-label">Apellido:</label>
+						<input type="text" class="form-input <%= locals.errors && errors.last_name ? 'is-invalid' : null  %>" id="last_name" name="last_name" value="<%= locals.old && old.last_name ? old.last_name : null %>" placeholder="Ej: Perez" >
+						<span class="text-danger"><%= locals.errors && errors.last_name ? errors.last_name.msg : null %></span>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" class="form-input <%= locals.errors && errors.email ? 'is-invalid' : null  %>" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" placeholder="Ej: asdsa@adsasd" >
+						<span class="text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="password" class="form-label">Password</label>
+						<input type="password" class="form-input <%= locals.errors && errors.password ? 'is-invalid' : null  %>" id="password" name="password" value="<%= locals.old && old.password ? old.password : null %>" placeholder="Ej: 12345" >
+						<span class="text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+					</div>
+					<div class="col-12">
+						<label for="avatar" class="form-label">Imagen:</label>
+						<input type="file" id="avatar" name="avatar" class="form-input">
+					</div>
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Crear producto</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

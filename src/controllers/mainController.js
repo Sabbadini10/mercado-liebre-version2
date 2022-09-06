@@ -1,8 +1,8 @@
 const { loadProductos } = require('../data/db-modules');
-const { admin } = require('../../middleware/admi')
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const controller = {
+const controllerIndex = {
 	index: (req, res) => {
 		let productos = loadProductos();
 		let productosVisitado = productos.filter(producto => producto.category == 'visited');
@@ -32,18 +32,7 @@ const controller = {
 			resultado,
 			toThousand
 		})
-	},
-	admin: (req,res) => {
-        return res.render("admin",{
-            user: req.query.user
-        })
-    },
-    loginAdmin: (req,res) => {
-        return res.render("loginAdmin",{
-            msg : req.query.error ? "No tienes los privilegios para ingresar" : null
-        })
-    }
-	
+	}
 };
 
-module.exports = controller;
+module.exports = controllerIndex;

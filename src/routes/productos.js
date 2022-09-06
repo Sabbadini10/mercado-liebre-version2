@@ -4,7 +4,7 @@ const router = express.Router();
 const upload = require('../../middleware/cargarFotoProducto'); 
 const logRuta = require('../../middleware/userLogs')
 
-const productosValidados = require('../../validations/productosValidados')
+const productosValidados = require('../validations/productosValidados')
 
 // ************ Controller Require ************
 const {index, crear, remover, tienda, editar, cambiar, detalle} = require('../controllers/productosController');

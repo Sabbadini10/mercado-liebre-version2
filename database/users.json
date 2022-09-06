@@ -1,0 +1,72 @@
+[
+ {
+  "id": 1,
+  "first_name": "Mauricio",
+  "last_name": "McEwan",
+  "email": "mmcewan0@sciencedaily.com",
+  "password": "gfnkLUiMGltJ"
+ },
+ {
+  "id": 2,
+  "first_name": "Melisandra",
+  "last_name": "Grundell",
+  "email": "mgrundell1@stumbleupon.com",
+  "password": "Yz44a1wWtV6C"
+ },
+ {
+  "id": 3,
+  "first_name": "Tally",
+  "last_name": "Callaway",
+  "email": "tcallaway2@phpbb.com",
+  "password": "XHFdBZZtnA"
+ },
+ {
+  "id": 4,
+  "first_name": "Persis",
+  "last_name": "Hayles",
+  "email": "phayles3@ovh.net",
+  "password": "KyGi6myFa"
+ },
+ {
+  "id": 5,
+  "first_name": "Andris",
+  "last_name": "Borsi",
+  "email": "aborsi4@reverbnation.com",
+  "password": "8Ptof6ef"
+ },
+ {
+  "id": 6,
+  "first_name": "Martie",
+  "last_name": "Wase",
+  "email": "mwase5@about.com",
+  "password": "wm54GPFHgKRO"
+ },
+ {
+  "id": 7,
+  "first_name": "Goober",
+  "last_name": "Borchardt",
+  "email": "gborchardt6@jimdo.com",
+  "password": "lBUWxYFEut"
+ },
+ {
+  "id": 8,
+  "first_name": "Mikey",
+  "last_name": "Boydell",
+  "email": "mboydell7@shop-pro.jp",
+  "password": "OUN7FFUwo"
+ },
+ {
+  "id": 9,
+  "first_name": "Templeton",
+  "last_name": "Haldenby",
+  "email": "thaldenby8@google.com",
+  "password": "R43h0RbKW6FS"
+ },
+ {
+  "id": 10,
+  "first_name": "Heall",
+  "last_name": "Baverstock",
+  "email": "hbaverstock9@bloomberg.com",
+  "password": "VEJVsFzBg"
+ }
+]

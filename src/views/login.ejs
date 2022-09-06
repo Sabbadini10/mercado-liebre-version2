@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head', {title: 'Administradores'}) %>
+<body>
+	<!-- Header -->
+	<%- include('./partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<!-- product detail -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<form action="/perfil">
+                    <div class="col-12 col-md-6 flex-column d-flex justify-content-center gap-2 ">
+						<label for="user" class="form-label">Administrador:</label>
+						<input type="text" id="user" name="user" placeholder="Ej: Ada" class="form-input form-control">
+						<label for="email" class="form-label">Email:</label>
+						<input type="email" id="email" name="email" placeholder="Ej: Ada" class="form-input form-control">
+						<label for="password" class="form-label">Contrasenia:</label>
+						<input type="password" id="password" name="password" placeholder="Ej: password" class="form-input form-control">
+					</div>
+                    <button type="submit" class="btn btn-primary" style="width: 100px; height: 30px">Ingresar</button>
+					
+                </form>
+			</div>
+		</div>
+				</div>
+
+	<!-- /product detail -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+
+</body>	
+</html>

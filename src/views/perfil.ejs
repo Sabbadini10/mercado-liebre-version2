@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include('./partials/head',{
+        title : 'Perfil de usuario'
+    })  %> 
+
+
+<body class="register">
+    <%- include('./partials/headerNavbar')  %> 
+
+    <main class="register__main">
+        <section class="register__main__section general__main__section">
+          <h1 class="form__title">Mi Perfil</h1>
+          <form class="input-group mb-3" action="/users/cambiar/<%= users.id %>?_method=PUT" class="form" enctype="multipart/form-data" method="POST">
+                <div class="col-12 col-md-4  g-4">
+                    <div class="col-auto">
+                    <label class="form-label" for="nombre">Nombre:</label>
+                    <input class="form-input" type="text" id="nombre" autocomplete="off" name="first_name" value="<%= users.first_name %>">
+                </div>
+                <div class="col-auto">
+                    <label class="form-label" for="apellido">Apellido:</label>
+                    <input class="form-input" type="text" id="apellido" name="lastName" value="<%= users.last_name %>">
+                </div>
+            <div class="col-auto">
+                    <label class="form-label" for="email">Email:</label>
+                    <input class="form-input" type="email" id="email" name="email" value="<%= users.email %>">
+               </div>
+               <div class="col-auto">
+                    <label class="form-label" for="date">Fecha de nacimiento:</label>
+                    <input class="form-input" type="date" id="date" name="birthday" value="1976-03-03">
+                    </div>
+                    <div class="col-auto">
+                    <h5 class="form-label">Género</h5>
+                    <div class="row-auto d-flex gap-4">
+                        <label class="form-label" for="masculino">
+                            <input  class="form-input" value="m" type="radio" id="masculino" name="gender"> Masculino</label>
+                         <label class="form-label" for="femenino">
+                            <input  class="form-input" value="f" type="radio" id="femenino" name="gender"> Femenino</label>
+                        <label class="form-label" for="otro">
+                            <input  class="form-input" value="o" type="radio" id="otro" name="gender"> Otro</label>
+                    </div>
+                     
+                        </div>
+                       
+               <div class="col-auto gap-2">
+                <h5 class="form-label">Hobbies</h5>
+                <br>
+                <div class="row-auto d-flex gap-4">
+                     <label class="form-label" for="Música">
+                    <input class="form-input" value="musica" type="checkbox" id="Música" name="hobbies"> Música</label>
+                     <label class="form-label" for="Deportes">
+                    <input class="form-input"  value="deportes" type="checkbox" id="Deportes" name="hobbies"> Deportes</label>
+                    <label class="form-label" for="libre">
+                     <input class="form-input"  value="aire libre" type="checkbox" id="libre" name="hobbies"> Aire libre</label>
+             </div>
+             </div>
+                
+             <div class="col-auto">
+                        <label class="form-label" for="direccion">Domicilio</label>
+                        <input class="form-input" type="text" id="direccion" name="address" value="Calle y altura">
+                </div>
+                <select class="productCrear__email__texto <%= locals.errors && errors.Categoria? 'is-invalid' : null  %>" aria-label="Default select example" id="categoria" name="categoria">
+                    <option value="" selected hidden>Seleccione...</option>
+                    <% categorias.forEach(Categoria=> { %>
+                      <option value="<%= Categoria%>" <%= locals.old && old.Categoria&& Categoria=== old.Categoria? 'selected' : null %>><%= Categoria%></option>
+                    <% }) %>
+              
+      
+                    </select>
+                    <select class="form-input" aria-label="Default select example" name="city" id="city">
+                        <option value="" hidden selected>Seleccione su ciudad...</option>
+                        <option value="buenos aires">Buenos Aires</option>
+                        <option value="cutral-co">Cutral-Có</option>
+                        <option value="san pedro">San Pedro</option>
+                        <option value="plaza huincul">Plaza Huincul</option>
+                    </select>
+                    <select class="form-input" aria-label="Default select example" name="province" id="province">
+                        <option value="" hidden selected>Seleccione su provincia...</option>
+                        <option value="neuquen">Neuquén</option>
+                        <option value="buenos aires">Buenos Aires</option>
+                        <option value="jujuy">Jujuy</option>
+                    </select>
+                    <div class="col-auto">
+                    <label class="form-label">Acerca de mí</label>
+                    <textarea class="form-control"  name="about" id="about" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="col-auto">
+                        <label class="form-label" for="avatar">Seleccione un imagen</label>
+                        <input class="form-input" type="file" id="avatar" name="<%= users.avatar %>">
+                    
+                    </div>
+                   
+                    <a href="" class="form__button form__button--cancel">Cancelar</a>
+                    <button  class="form__button form__button--send" type="submit">Guardar cambios</button>
+          </form>
+        </section>
+    </main>
+</body>
+
+</html>

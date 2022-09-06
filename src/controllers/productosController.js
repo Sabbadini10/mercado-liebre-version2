@@ -8,7 +8,7 @@ const {
 const { validationResult } = require("express-validator");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const controller = {
+const controllerProductos = {
     // Root - Show all products
     index: (req, res) => {
         const productos = loadProductos();
@@ -152,4 +152,4 @@ const controller = {
     },
 };
 
-module.exports = controller;
+module.exports = controllerProductos;
