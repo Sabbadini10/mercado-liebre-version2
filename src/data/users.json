@@ -1,16 +1,60 @@
 [
-    {
+   {
       "id": 1,
-      "first_name": "Mauricio",
-      "last_name": "McEwan",
-      "email": "mmcewan0@sciencedaily.com",
-      "password": "gfnkLUiMGltJ"
-    },
-    {
+      "first_name": "Layne",
+      "last_name": "Prescott",
+      "email": "nprescott0@usnews.com",
+      "user_name": "Ned",
+      "fecha_nacimiento": "4/22/2022",
+      "domicilio": "Sebadelhe",
+      "perfil_usuario": true,
+      "categorias": "Retaining Wall and Brick Pavers",
+      "avatar": "http://dummyimage.com/187x100.png/cc0000/ffffff"
+   },
+   {
       "id": 2,
-      "first_name": "Melisandra",
-      "last_name": "Grundell",
-      "email": "mgrundell1@stumbleupon.com",
-      "password": "Yz44a1wWtV6C"
-    }
-  ]
+      "first_name": "Lorianna",
+      "last_name": "McCraine",
+      "email": "gmccraine1@ycombinator.com",
+      "user_name": "Gannie",
+      "fecha_nacimiento": "8/11/2022",
+      "domicilio": "Port-de-Paix",
+      "perfil_usuario": false,
+      "categorias": "Waterproofing & Caulking",
+      "avatar": "http://dummyimage.com/204x100.png/cc0000/ffffff"
+   },
+   {
+      "id": 3,
+      "first_name": "Matias",
+      "last_name": "Sabbadini",
+      "user_name": "bocagmail",
+      "email": "boca@gmail.com",
+      "fecha_nacimiento": "2022-09-22",
+      "domicilio": "sadsdasd",
+      "perfil_usuario": "on",
+      "password": "$2a$10$4yH.dATBV0zN8SYlU1GHG.2OH.yzLsGjvRaNoKfzuQHOgyFzSmZgu",
+      "categorias": [
+         "moda",
+         "hogar",
+         "jugueteria"
+      ],
+      "avatar": "avatar-1664213344516.png"
+   },
+   {
+      "id": 4,
+      "first_name": "Matias",
+      "last_name": "Sabbadini",
+      "user_name": "tim",
+      "email": "matiassabbadini24@gmail.com",
+      "fecha_nacimiento": "2022-09-09",
+      "domicilio": "dsadsadsadsad",
+      "perfil_usuario": "on",
+      "password": "$2a$10$BK/HH2Khw455DwMvo.FuX.JjapWgU3ZMPWHUNnAvyXxIPu45JtO7K",
+      "categorias": [
+         "moda",
+         "hogar",
+         "jugueteria"
+      ],
+      "avatar": "avatar-1664280604820.jpg"
+   }
+]

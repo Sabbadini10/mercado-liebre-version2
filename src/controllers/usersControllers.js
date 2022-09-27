@@ -9,80 +9,74 @@ const bcryptjs = require('bcryptjs');
     
     module.exports = {
         registro : (req,res) => {
-            return res.render('./register')
+            const users = cargarUsers();
+            return res.render('./register',{
+                users
+            })
         },
         prosesarRegistro : (req,res) => {
             const errors = validationResult(req);
-
-            if (req.fileValidationError) {
-                errors = {
-                    ...errors,
-                    images: {
-                        msg: req.fileValidationError,
-                    },
-                };
-            }
-    
+            const users = cargarUsers();
             if(errors.isEmpty()){
-                const users = cargarUsers();
-                let avatar;
-            if (req.files.length > 0) {
-                avatar = req.files.map((avatar) => avatar.filename);
-            }
-            const {first_name,last_name,email,password} = req.body;
+            const {first_name,last_name,user_name,email,fecha_nacimiento,domicilio,password,perfil_usuario,categorias} = req.body;
                const newUser = {
-                id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
-                first_name : first_name.trim(),
-                last_name : last_name.trim(),
-                email : email.trim(),
-                password : bcryptjs.hashSync(password.trim(),10),
-                avatar:  [`../images/avatar/${avatar}`] ? [`../images/avatar/${avatar}`] : [`../images/avatar/imagenDefault.jpg`]
+                    id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
+                    first_name : first_name.trim(),
+                    last_name : last_name.trim(),
+                    user_name : user_name.trim(),
+                    email : email.trim(),
+                    fecha_nacimiento,
+                    domicilio,
+                    perfil_usuario,
+                    password : bcryptjs.hashSync(password.trim(),10),
+                    password2 :  password2 = () => {if(password2 == true || password2 == false){
+                        return delete password2
+                        }},
+                    categorias: categorias && categorias.length > 1 ? categorias : [categorias],
+                    avatar: req.file ? req.file.filename : req.session.userLogged.avatar
                }
+              
         
                const usersModify = [...users, newUser];
         
                crearUsers(usersModify);
-               return res.redirect('./users/perfil')
-            }else{
-                if(req.files.length > 0){
-                    req.files.forEach(({filename}) => {
-                        fs.existsSync(path.resolve(__dirname,'..','public','images','avatar',filename)) &&  fs.unlinkSync(path.resolve(__dirname,'..','public','images','avatar',filename))
-                    })
-                }
-            
+               return res.redirect('/')
+            }else {
                 return res.render('./register', {
-                    errors,
+                    errors : errors.mapped(),
                     old : req.body
                 })
             }
-    
-        
         },
         login : (req,res) => {
             return res.render('./login')
         },
         procesarLogin : (req,res) => {
+            const users = cargarUsers();
             let errors = validationResult(req);
-    
-            if(errors.isEmpty()){
-    
-                let {id, firstName, rol, avatar} = cargarUsers().find(user => user.email === req.body.email);
-    
-                req.session.userLogin = {
-                    id,
-                    first_name,
-                    rol,
-                    avatar
-                }
+            let userGuardado = users.find(user => user["user_name"] === req.body.user_name)
+
+            if(userGuardado){
+                let {user_name, password } = userGuardado;
                 return res.redirect('/')
             }else {
-                let errors = validationResult(req);
                 return res.render('./login',{
-                    errors : errors.mapped()
+                    errors: {
+                        ...errors,
+                        user_name: {
+                            msg: "Las credenciales son invalidas"
+                        }
+                    },
+                    old: req.body
                 })
             }
         },
         perfil : (req,res) => {
+           return res.render('./perfil', {
+           user : req.session.userLogin
+           })
+        },
+        processperfil : (req,res) => {
             const {first_name, last_name ,email, password, avatar} = req.body;
 
             let usersModify = cargarUsers().map(user => {

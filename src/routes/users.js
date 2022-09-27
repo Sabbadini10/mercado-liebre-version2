@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { prosesarRegistro, registro, login, perfil, procesarLogin} = require('../controllers/usersControllers');
+const { prosesarRegistro, registro, login, perfil, procesarLogin, processperfil} = require('../controllers/usersControllers');
 const uploadAvatar = require('../../middleware/cargarAvatar');
 const loginValidator= require('../validations/loginValidator');
 const registerValidator = require('../validations/registerValidator')
@@ -17,7 +17,7 @@ router
   
   .get('/perfil',perfil) // /users/profile
   
-  .put('/update/:id',uploadAvatar.single('avatar'), perfil)
+  .put('/update/:id',uploadAvatar.single('avatar'), processperfil)
 
 
 module.exports = router
